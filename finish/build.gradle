@@ -1,4 +1,3 @@
-// tag::whole[]
 apply plugin: 'war'
 apply plugin: 'liberty'
 
@@ -29,7 +28,6 @@ repositories {
 dependencies {
     compile group: 'com.sun.faces', name: 'jsf-api', version: '2.2.14'
     compile group: 'com.sun.faces', name: 'jsf-impl', version: '2.2.14'
-	//compile group: 'javax.faces', name: 'jsf-api', version: '2.0'
 	providedCompile group: 'javax.enterprise', name: 'cdi-api', version: '1.2'
     libertyRuntime group: 'io.openliberty', name: 'openliberty-runtime', version: '[17.0.0.4,)'
 }
@@ -63,5 +61,3 @@ libertyRun.dependsOn 'libertyStop'
 libertyStart.doLast {
 	println "Application available at: ${appUrl}"
 }
-
-// end::whole[]

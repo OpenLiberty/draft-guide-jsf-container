@@ -8,7 +8,7 @@
  * Contributors:
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
-package io.openliberty.guides.hello;
+package io.openliberty.guides.jsfcontainer;
 
 import java.io.Serializable;
 import java.util.concurrent.ExecutorService;
