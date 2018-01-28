@@ -36,7 +36,7 @@ dependencies {
 ext {
 	httpPort = 8080
 	httpsPort = 8443
-	appUrl = 'http://localhost:' + httpPort
+	appUrl = 'http://localhost:' + httpPort + '/' + war.baseName + '-' + war.version
 }
 
 liberty {
@@ -48,7 +48,7 @@ liberty {
 }
 
 task openBrowser {
-    description = 'Open browser to${appUrl}'
+    description = 'Open browser to ${appUrl}'
     doLast {
         java.awt.Desktop.desktop.browse "${appUrl}".toURI()
     }

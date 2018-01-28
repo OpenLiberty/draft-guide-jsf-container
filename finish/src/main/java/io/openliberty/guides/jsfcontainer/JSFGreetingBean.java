@@ -14,29 +14,33 @@ import java.io.Serializable;
 import java.util.concurrent.ExecutorService;
 
 import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
-import javax.faces.bean.ManagedBean;
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 @SuppressWarnings("serial")
-@Named("jsfGreetBean")
-//@ManagedBean(name = "jsfGreetBean")
+@Named("JSFGreetingBean")
+//@ManagedBean(name = "JSFGreetingBean")
 @SessionScoped
 public class JSFGreetingBean implements Serializable {
-	
+
     private String greeting = "I'm a regular JSF Bean";
-    
+
     @Resource
     ExecutorService exec;
+
+    @Inject
+    CDIBean cdiBean;
 
     @PostConstruct
     public void start() {
         System.out.println(getClass() + " postConstruct called");
-        this.greeting = "I'm using lifecycle annotations!";
-        if(exec != null)
-        	greeting += " And I'm using resource injection!";
+        this.greeting = "I'm using lifecycle annotations";
+        if (exec != null)
+            greeting += " and I'm using resource injection!";
+        if (cdiBean != null)
+            greeting += " " + cdiBean.greet();
     }
 
     public void setGreeting(String newGreeting) {
